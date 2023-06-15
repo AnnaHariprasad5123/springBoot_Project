@@ -1,7 +1,9 @@
 package com.mavenProject.library.controller;
 
+import com.mavenProject.library.dto.BookDTO;
 import com.mavenProject.library.entity.Book;
 import com.mavenProject.library.service.BookService;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -9,47 +11,73 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/books")
 public class BookController {
 
     private final BookService bookService;
+    private final ModelMapper modelMapper;
 
     @Autowired
-    public BookController(BookService bookService) {
+    public BookController(BookService bookService, ModelMapper modelMapper) {
         this.bookService = bookService;
+        this.modelMapper = modelMapper;
     }
 
     @GetMapping
-    public ResponseEntity<List<Book>> getAllBooks() {
+    public ResponseEntity<List<BookDTO>> getAllBooks() {
         List<Book> books = bookService.getAllBooks();
-        return new ResponseEntity<>(books, HttpStatus.OK);
+        List<BookDTO> bookDTOs = books.stream()
+                .map(this::entityToDTO)
+                .collect(Collectors.toList());
+        return new ResponseEntity<>(bookDTOs, HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Book> getBookById(@PathVariable Long id) {
+    public ResponseEntity<BookDTO> getBookById(@PathVariable Long id) {
         Optional<Book> book = bookService.getBookById(id);
-        return book.map(value -> new ResponseEntity<>(value, HttpStatus.OK))
+        return book.map(value -> new ResponseEntity<>(entityToDTO(value), HttpStatus.OK))
                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
     @PostMapping
-    public ResponseEntity<Book> createBook(@RequestBody Book book) {
+    public ResponseEntity<BookDTO> createBook(@RequestBody BookDTO bookDTO) {
+        Book book = dtoToEntity(bookDTO);
         Book createdBook = bookService.saveBook(book);
-        return new ResponseEntity<>(createdBook, HttpStatus.CREATED);
+        BookDTO createdBookDTO = entityToDTO(createdBook);
+        return new ResponseEntity<>(createdBookDTO, HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Book> updateBook(@PathVariable Long id, @RequestBody Book book) {
+    public ResponseEntity<BookDTO> updateBook(@PathVariable Long id, @RequestBody BookDTO bookDTO) {
         Optional<Book> existingBook = bookService.getBookById(id);
         if (existingBook.isPresent()) {
+            Book book = dtoToEntity(bookDTO);
             book.setId(id);
             Book updatedBook = bookService.saveBook(book);
-            return new ResponseEntity<>(updatedBook, HttpStatus.OK);
+            BookDTO updatedBookDTO = entityToDTO(updatedBook);
+            return new ResponseEntity<>(updatedBookDTO, HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
+    }
+
+    @PutMapping("/{bookId}/author/{authorId}")
+    public Book assignAuthorToBook(
+            @PathVariable Long bookId,
+            @PathVariable Long authorId
+    ) {
+        return bookService.assignAuthorToBook(bookId, authorId);
+    }
+
+    @PutMapping("/{bookId}/publisher/{publisherId}")
+    public Book assignPublisherToBook(
+            @PathVariable Long bookId,
+            @PathVariable Long publisherId
+    ) {
+        return bookService.assignPublisherToBook(bookId, publisherId);
     }
 
     @DeleteMapping("/{id}")
@@ -61,5 +89,13 @@ public class BookController {
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
+    }
+
+    private Book dtoToEntity(BookDTO bookDTO) {
+        return modelMapper.map(bookDTO, Book.class);
+    }
+
+    private BookDTO entityToDTO(Book book) {
+        return modelMapper.map(book, BookDTO.class);
     }
 }

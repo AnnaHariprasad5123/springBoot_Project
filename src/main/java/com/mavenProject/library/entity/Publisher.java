@@ -31,5 +31,8 @@ public class Publisher {
     @JsonIgnore
     @ManyToMany(mappedBy = "publishers")
     private Set<Book> books = new HashSet<>();
+
+    public Publisher(long l, String s) {
+    }
 }
 

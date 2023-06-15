@@ -21,13 +21,16 @@ public class Book {
     @Column(name = "book_id")
     private Long id;
 
-    @Column(nullable = false)
+    @Column(name = "title",nullable = false)
     private String title;
 
     @Column(name = "publication_year")
     private Integer publicationYear;
 
+    @Column(name = "ISBN")
     private String ISBN;
+
+   
 
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(
@@ -45,5 +48,9 @@ public class Book {
             inverseJoinColumns = @JoinColumn(name = "publisher_id")
     )
     private Set<Publisher> publishers = new HashSet<>();
+
+
+    public Book(long l, String s, String s1) {
+    }
 }
 

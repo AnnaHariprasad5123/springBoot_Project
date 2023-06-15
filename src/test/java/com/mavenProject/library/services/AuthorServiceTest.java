@@ -64,7 +64,6 @@ class AuthorServiceTest {
 
         Author result = authorService.saveAuthor(author);
 
-        // Assert
         assertEquals(author, result);
         verify(authorRepository,times(1)).save(author);
 
