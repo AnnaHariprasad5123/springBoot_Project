@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/authors")
@@ -31,7 +30,7 @@ public class AuthorController {
         List<Author> authors = authorService.getAllAuthors();
         List<AuthorDTO> authorDTOs = authors.stream()
                 .map(this::entityToDTO)
-                .collect(Collectors.toList());
+                .toList();
         return new ResponseEntity<>(authorDTOs, HttpStatus.OK);
     }
 

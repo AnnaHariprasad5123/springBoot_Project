@@ -17,7 +17,7 @@ public class BookDTO {
     private Long id;
     private String title;
     private Integer publicationYear;
-    private String ISBN;
+    private String isbn;
     private Set<Author> authors;
     private Set<Publisher> publishers;
 

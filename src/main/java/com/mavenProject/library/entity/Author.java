@@ -50,5 +50,8 @@ public class Author {
     private Set<Book> books = new HashSet<>();
 
     public Author(long l, String john, String doe) {
+        this.id = l;
+        this.firstName =john;
+        this.lastName = doe;
     }
 }

@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/publishers")
@@ -31,7 +30,7 @@ public class PublisherController {
         List<Publisher> publishers = publisherService.getAllPublishers();
         List<PublisherDTO> publisherDTOs = publishers.stream()
                 .map(this::entityToDTO)
-                .collect(Collectors.toList());
+                .toList();;
         return new ResponseEntity<>(publisherDTOs, HttpStatus.OK);
     }
 

@@ -28,7 +28,7 @@ public class Book {
     private Integer publicationYear;
 
     @Column(name = "ISBN")
-    private String ISBN;
+    private String isbn;
 
    
 
@@ -51,6 +51,8 @@ public class Book {
 
 
     public Book(long l, String s, String s1) {
+        this.id = l;
+        this.title = s;
     }
 }
 

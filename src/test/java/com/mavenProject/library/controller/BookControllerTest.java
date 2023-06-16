@@ -41,7 +41,7 @@ class BookControllerTest {
                 new Book(1L, "Book 1", "Author 1"),
                 new Book(2L, "Book 2", "Author 2")
         );
-//
+
         when(bookService.getAllBooks()).thenReturn(books);
         when(modelMapper.map(any(Book.class), eq(BookDTO.class))).thenReturn(new BookDTO());
 
