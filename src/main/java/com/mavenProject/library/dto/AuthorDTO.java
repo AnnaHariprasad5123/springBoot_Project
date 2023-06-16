@@ -1,7 +1,7 @@
-package com.mavenProject.library.dto;
+package com.mavenproject.library.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.mavenProject.library.entity.Book;
+import com.mavenproject.library.entity.Book;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

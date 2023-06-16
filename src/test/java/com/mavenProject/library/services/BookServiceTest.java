@@ -1,8 +1,8 @@
-package com.mavenProject.library.services;
+package com.mavenproject.library.services;
 
-import com.mavenProject.library.dao.BookRepository;
-import com.mavenProject.library.service.BookService;
-import com.mavenProject.library.entity.Book;
+import com.mavenproject.library.dao.BookRepository;
+import com.mavenproject.library.service.BookService;
+import com.mavenproject.library.entity.Book;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;

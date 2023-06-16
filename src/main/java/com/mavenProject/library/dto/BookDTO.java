@@ -1,7 +1,7 @@
-package com.mavenProject.library.dto;
+package com.mavenproject.library.dto;
 
-import com.mavenProject.library.entity.Author;
-import com.mavenProject.library.entity.Publisher;
+import com.mavenproject.library.entity.Author;
+import com.mavenproject.library.entity.Publisher;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

@@ -1,4 +1,4 @@
-package com.mavenProject.library.entity;
+package com.mavenproject.library.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

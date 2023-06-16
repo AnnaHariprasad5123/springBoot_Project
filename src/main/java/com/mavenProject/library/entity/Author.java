@@ -1,4 +1,4 @@
-package com.mavenProject.library.entity;
+package com.mavenproject.library.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Table;
@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import jakarta.persistence.*;
+import lombok.ToString;
 
 
 import java.util.HashSet;
@@ -17,6 +18,7 @@ import java.util.Set;
 @Getter
 @Setter
 @NoArgsConstructor
+@ToString
 public class Author {
 
     @Id
@@ -30,28 +32,15 @@ public class Author {
     @Column(name = "last_name", nullable = false)
     private String lastName;
 
-    public Author(Long id, String firstName, String lastName, Set<Book> books) {
+    public Author(Long id, String firstName, String lastName) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.books = books;
     }
 
-    public String toString() {
-        return "Author{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                '}';
-    }
 
     @JsonIgnore
     @ManyToMany(mappedBy = "authors")
     private Set<Book> books = new HashSet<>();
 
-    public Author(long l, String john, String doe) {
-        this.id = l;
-        this.firstName =john;
-        this.lastName = doe;
-    }
 }
