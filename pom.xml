@@ -14,7 +14,7 @@
 	<name>library</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
-		<java.version>11</java.version>
+		<java.version>20</java.version>
 		<spring-cloud.version>2022.0.3</spring-cloud.version>
 			<sonar.organization>annahariprasad5123</sonar.organization>
 			<sonar.host.url>https://sonarcloud.io</sonar.host.url>
@@ -91,24 +91,23 @@
 				<version>0.8.7</version>
 				<executions>
 					<execution>
-						<id>prepare-agent</id>
+						<id>jacoco-initialize</id>
 						<goals>
 							<goal>prepare-agent</goal>
 						</goals>
+						<configuration>
+							<propertyName>jacoco.agent.argLine</propertyName>
+						</configuration>
 					</execution>
 					<execution>
-						<id>report</id>
+						<id>jacoco-report</id>
+						<phase>test</phase>
 						<goals>
 							<goal>report</goal>
 						</goals>
-						<configuration>
-							<formats>
-								<format>XML</format>
-							</formats>
-						</configuration>
 					</execution>
 				</executions>
-			</plugin>		
+			</plugin>	
 		</plugins>
 	</build>
 
