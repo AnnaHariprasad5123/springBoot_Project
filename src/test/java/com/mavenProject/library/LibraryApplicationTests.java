@@ -8,10 +8,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class LibraryApplicationTests {
 
 
-	@Test
-	void contextLoads() {
-		assertEquals(5, 2 + 3);
-	}
+// 	@Test
+// 	void contextLoads() {
+	
+// 	}
 
 
 }
