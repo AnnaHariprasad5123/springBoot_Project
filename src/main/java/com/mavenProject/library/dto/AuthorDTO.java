@@ -1,4 +1,4 @@
-package com.mavenProject.library.dto;
+package com.mavenproject.library.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.mavenProject.library.entity.Book;

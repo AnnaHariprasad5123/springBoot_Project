@@ -1,7 +1,7 @@
-package com.mavenProject.library.dao;
+package com.mavenproject.library.dao;
 
 
-import com.mavenProject.library.entity.Book;
+import com.mavenproject.library.entity.Book;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface BookRepository extends JpaRepository<Book, Long> {

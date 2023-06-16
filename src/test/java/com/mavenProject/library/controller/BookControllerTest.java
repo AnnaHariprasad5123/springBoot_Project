@@ -1,8 +1,8 @@
-package com.mavenProject.library.controller;
+package com.mavenproject.library.controller;
 
-import com.mavenProject.library.dto.BookDTO;
-import com.mavenProject.library.entity.Book;
-import com.mavenProject.library.service.BookService;
+import com.mavenproject.library.dto.BookDTO;
+import com.mavenproject.library.entity.Book;
+import com.mavenproject.library.service.BookService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;

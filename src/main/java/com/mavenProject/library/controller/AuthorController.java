@@ -1,8 +1,8 @@
-package com.mavenProject.library.controller;
+package com.mavenproject.library.controller;
 
-import com.mavenProject.library.dto.AuthorDTO;
-import com.mavenProject.library.entity.Author;
-import com.mavenProject.library.service.AuthorService;
+import com.mavenproject.library.dto.AuthorDTO;
+import com.mavenproject.library.entity.Author;
+import com.mavenproject.library.service.AuthorService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

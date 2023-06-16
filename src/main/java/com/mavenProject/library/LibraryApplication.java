@@ -1,4 +1,4 @@
-package com.mavenProject.library;
+package com.mavenproject.library;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.boot.SpringApplication;

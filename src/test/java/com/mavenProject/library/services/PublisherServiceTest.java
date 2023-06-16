@@ -1,8 +1,8 @@
-package com.mavenProject.library.services;
+package com.mavenproject.library.services;
 
-import com.mavenProject.library.dao.PublisherRepository;
-import com.mavenProject.library.entity.Publisher;
-import com.mavenProject.library.service.PublisherService;
+import com.mavenproject.library.dao.PublisherRepository;
+import com.mavenproject.library.entity.Publisher;
+import com.mavenproject.library.service.PublisherService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;

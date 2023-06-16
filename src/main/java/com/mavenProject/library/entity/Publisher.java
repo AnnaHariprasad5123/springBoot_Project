@@ -1,4 +1,4 @@
-package com.mavenProject.library.entity;
+package com.mavenproject.library.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;

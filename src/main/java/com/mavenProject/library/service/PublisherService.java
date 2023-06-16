@@ -1,7 +1,7 @@
-package com.mavenProject.library.service;
+package com.mavenproject.library.service;
 
-import com.mavenProject.library.entity.Publisher;
-import com.mavenProject.library.dao.PublisherRepository;
+import com.mavenproject.library.entity.Publisher;
+import com.mavenproject.library.dao.PublisherRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
