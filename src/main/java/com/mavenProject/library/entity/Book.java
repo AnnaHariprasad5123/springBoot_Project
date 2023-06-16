@@ -52,7 +52,7 @@ public class Book {
 
     public Book(long l, String s, String s1) {
         this.id = l;
-        this.title = s;
+        this.title = s + s1;
     }
 }
 

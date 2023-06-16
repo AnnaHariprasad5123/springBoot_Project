@@ -30,7 +30,7 @@ public class PublisherController {
         List<Publisher> publishers = publisherService.getAllPublishers();
         List<PublisherDTO> publisherDTOs = publishers.stream()
                 .map(this::entityToDTO)
-                .toList();;
+                .toList();
         return new ResponseEntity<>(publisherDTOs, HttpStatus.OK);
     }
 
